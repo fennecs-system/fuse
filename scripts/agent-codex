@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -euo pipefail
+# Executed only INSIDE the VM. Prompt is supplied on stdin, never through a shell.
+exec codex exec --json --dangerously-bypass-approvals-and-sandbox -
