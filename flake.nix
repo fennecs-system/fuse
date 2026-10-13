@@ -11,8 +11,10 @@
       src = self; cargoLock.lockFile = ./Cargo.lock;
     };
   in {
-    packages.${system}.default = server;
-    packages.${system}.server = server;
+    packages.${system} = {
+      default = server;
+      inherit server;
+    };
     devShells.${system}.default = pkgs.mkShell {
       packages = with pkgs; [ cargo rustc rustfmt clippy python3 ];
     };
